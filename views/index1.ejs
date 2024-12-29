@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylecss/deva.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">home</a>
+        <a href="/profile">show</a>
+  
+    </div>
+
+
+     <div class="show">
+         <div class="thead">
+    <% if (user!="") {%>
+        <table> 
+            <thead >
+                
+                <tr>
+                    <th class="sn">Sno</th>
+                    <th class="sn">Name</th>
+                    <th class="sn">age</th>
+                    <th class="sn">password</th>
+
+                    <th class="sn">Email</th>
+                    <th class="sn">Action</th>
+                </tr>
+                
+            </thead>
+            
+            
+             <tbody>
+                 <% user.forEach((d,c)=>{%>
+                  <tr>
+                      <td class="sn"><%=c+1 %></td>
+                      <td class="sn"><%= d.name %></td>
+                      <td class="sn"><%= d.age %></td>
+                      <td class="sn"><%= d.password %></td>
+
+                      <td class="sn"><%= d.email %></td>
+                       <td>
+                           <a class="sn1" href="/edit/<%- d.id %>">Update</a>
+                           <a class="sn2" href="/delete/<%= d._id %>">Delete</a>
+
+                       </td>
+                  </tr>
+               <% }) %>
+             </tbody>
+            
+               
+        </table>
+       <% } %>
+      </div>
+    </div>
+    
+</body>
+</html>
